@@ -1,10 +1,12 @@
 zengsource-weixin
 =================
 
-微信公众平台Java SDK
+微信公众平台开发者模式Java SDK
 
 主要功能：
+
 1. 支持微信公众平台的所有API读取与响应，具体参见：http://mp.weixin.qq.com/wiki/index.php
+
 2. 支持用微信公众平台做流程，流程示例见源代码里面的：https://github.com/zengsn/zengsource-weixin/blob/master/src/zengsource-weixin/src/main/java/org/zengsource/weixin/process/Base.pd.xml 
 
 开发工具：
