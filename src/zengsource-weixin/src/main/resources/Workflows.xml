@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions>
+	<definition>
+		<!-- 流程名称 -->
+		<name>DemoWorkflow</name>
+		<desc>数字命令流程</desc>
+		<!-- 节点列表 -->
+		<nodes>
+			<!-- 节点 -->
+			<node>
+				<!-- 节点名称 -->
+				<name>org.zengsource.weixin.process.impl.NodeToPrint</name>
+				<!-- 节点描述 -->
+				<desc>打印消息内容节点</desc>
+				<!-- 接收消息类型： 文本text、图片image、语音voice、视频video、位置location、链接link、事件event。 -->
+				<msgType>text</msgType>
+				<!-- 接收消息内容：使用正则表达式符号。 -->
+				<msgContent>.*</msgContent>
+			</node>
+			<!-- 节点 -->
+		</nodes>
+		<!-- 节点列表 -->
+	</definition>
+</definitions>

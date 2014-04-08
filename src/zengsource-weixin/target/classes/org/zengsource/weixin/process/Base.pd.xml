@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions>
+	<definition>
+		<name>Subscription</name>
+		<desc>用户订阅</desc>
+		<index>1001</index>
+		<nodes>
+			<node>
+				<name>SubscriptionNode</name>
+				<class>org.zengsource.weixin.process.node.EventNode</class>
+				<msgType>event</msgType>
+				<event>subscribe</event>
+			</node>
+		</nodes>
+	</definition>
+	<definition>
+		<name>Unsubscription</name>
+		<desc>用户取消订阅</desc>
+		<index>1002</index>
+		<nodes>
+			<node>
+				<name>UnsubscriptionNode</name>
+				<class>org.zengsource.weixin.process.node.EventNode</class>
+				<msgType>event</msgType>
+				<event>unsubscribe</event>
+			</node>
+		</nodes>
+	</definition>
+	<definition>
+		<name>ClickMenu</name>
+		<desc>用户点击</desc>
+		<index>9999</index>
+		<nodes>
+			<node>
+				<name>ClickMenuNode</name>
+				<class>org.zengsource.weixin.process.node.EventNode</class>
+				<msgType>event</msgType>
+				<event>click</event>
+				<eventKey>.*</eventKey>
+			</node>
+		</nodes>
+	</definition>
+</definitions>
