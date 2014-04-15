@@ -31,8 +31,6 @@ public abstract class AbstractNode implements Node, Parameters {
 
 	private String description;
 
-	private String prompt;
-
 	// + CSTORS ++++++++++++++++++++++++++++++++++++++++++++++++++++++++ //
 
 	// + METHODS +++++++++++++++++++++++++++++++++++++++++++++++++++++++ //
@@ -44,7 +42,7 @@ public abstract class AbstractNode implements Node, Parameters {
 
 	@Override
 	public boolean matches(Message message) {
-		if (message != null) {
+		if (message != null && getMsgType().equals(message.getMsgType())) {
 			if (MSG_TYPE_TEXT.equals(getMsgType())) {
 				if (msgContent != null && message.getContent() != null) {
 					return Pattern.matches(msgContent, message.getContent());
@@ -70,16 +68,12 @@ public abstract class AbstractNode implements Node, Parameters {
 		return false;
 	}
 
-	// + G^SETTERS +++++++++++++++++++++++++++++++++++++++++++++++++++++ //
-
 	@Override
 	public String getPrompt() {
-		return prompt == null ? "" : prompt;
+		return "";
 	}
 
-	public void setPrompt(String prompt) {
-		this.prompt = prompt;
-	}
+	// + G^SETTERS +++++++++++++++++++++++++++++++++++++++++++++++++++++ //
 
 	public int getIndex() {
 		return index;

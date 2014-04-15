@@ -35,6 +35,9 @@ public interface Constants {
 	public static final String LANG_EN = "en";
 	public static final String LANG_ZH_CN = "zh_CN";
 	public static final String LANG_ZH_TW = "zh_TW";
+	// 发送客户消息
+	public static final String URL_SEND_MSG = "https://api.weixin.qq.com/cgi-bin/message/custom/send";
+	public static final String JSON_SEND_TEXT_MSG = "{\"touser\":\"%s\",\"msgtype\":\"text\",\"text\":{\"content\":\"%s\"}}";
 
 	// 命令前缀
 	public static final char CMD_PREFIX_USER = 'u';

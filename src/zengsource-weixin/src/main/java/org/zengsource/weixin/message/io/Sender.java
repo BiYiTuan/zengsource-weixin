@@ -19,4 +19,6 @@ public interface Sender {
 
 	public User getUser(Message message);
 
+	public Message send(Message notice);
+
 }

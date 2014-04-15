@@ -3,11 +3,17 @@
  */
 package org.zengsource.weixin.message;
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.commons.lang.math.NumberUtils;
+import org.codehaus.jackson.JsonGenerationException;
+import org.codehaus.jackson.map.JsonMappingException;
+import org.codehaus.jackson.map.ObjectMapper;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.DocumentHelper;
@@ -112,6 +118,11 @@ public class Message implements Parameters, Serializable {
 	private String hqMusicUrl;
 	// 回复图文消息
 	private List<Article> articles;
+	// 发送消息
+	private Integer responseStatus;
+	private String responseMime;
+	private String responseText;
+	private Integer errorCode;
 
 	// + CSTORS ++++++++++++++++++++++++++++++++++++++++++++++++++++++++ //
 
@@ -193,7 +204,23 @@ public class Message implements Parameters, Serializable {
 	}
 
 	public String toJson() {
-		return "JSON";
+		Map<String, Object> dataMap = new HashMap<String, Object>();
+		dataMap.put("touser", getToUserName());
+		dataMap.put("msgtype", "text");
+		Map<String, String> textMap = new HashMap<String, String>();
+		textMap.put("content", getContent());
+		dataMap.put("text", textMap);
+		ObjectMapper mapper = new ObjectMapper();
+		try {
+			return mapper.writeValueAsString(dataMap);
+		} catch (JsonGenerationException e) {
+			e.printStackTrace();
+		} catch (JsonMappingException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return "{\"error\":\"unknown\"}";
 	}
 
 	@Override
@@ -439,6 +466,38 @@ public class Message implements Parameters, Serializable {
 
 	public void setArticles(List<Article> articles) {
 		this.articles = articles;
+	}
+
+	public Integer getResponseStatus() {
+		return responseStatus;
+	}
+
+	public void setResponseStatus(Integer responseStatus) {
+		this.responseStatus = responseStatus;
+	}
+
+	public String getResponseMime() {
+		return responseMime;
+	}
+
+	public void setResponseMime(String responseMime) {
+		this.responseMime = responseMime;
+	}
+
+	public String getResponseText() {
+		return responseText;
+	}
+
+	public void setResponseText(String responseText) {
+		this.responseText = responseText;
+	}
+
+	public Integer getErrorCode() {
+		return errorCode;
+	}
+
+	public void setErrorCode(Integer errorCode) {
+		this.errorCode = errorCode;
 	}
 
 	// + MAIN^TEST +++++++++++++++++++++++++++++++++++++++++++++++++++++ //

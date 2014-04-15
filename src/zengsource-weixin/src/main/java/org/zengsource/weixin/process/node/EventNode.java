@@ -52,7 +52,7 @@ public class EventNode extends AbstractNode implements Constants, Parameters, Re
 	/** 处理用户订阅。 */
 	protected Message onSubscribe(Message in) {
 		Message out = in.replyText();
-		out.setContent(WELCOME_TO_SUBSTRIBE);
+		out.setContent(INFO_WELCOME_TO_SUBSTRIBE);
 		return out;
 	}
 

@@ -72,7 +72,7 @@ public class XmlDefinitionLoader implements DefinitionLoader, Parameters {
 							node.setEventKey(nodeEle.elementTextTrim("eventKey"));
 						}
 					}
-					node.setPrompt(nodeEle.elementTextTrim("prompt"));
+					//node.setPrompt(nodeEle.elementTextTrim("prompt"));
 					def.addNode(node);
 				}
 				definitions.add(def);
